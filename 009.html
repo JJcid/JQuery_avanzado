@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .elem{
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+      }
+    
+    </style>
+  </head>
+
+  <body>
+    <h1> JQuery avanzado </h1> 
+    <div class="elem"></div>
+
+    <ul id="desayuno">
+      <li class="huevos">No</li>
+      <li class="tostadas">No</li>
+      <li class="zumo">Si</li>
+    </ul>
+
+    <script data-require="jquery@*" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+
+      var $desayuno = $("#desayuno");
+
+      //De esta manera cada vez que se encuentra end vuelve al principio de la variable y no sale
+      //de ella, de maneras alternativas vuelve a buscar y cargar la variable.
+      //Conseguimos más eficiencia en las operaciones.
+
+      $desayuno.find(".huevos").text('Si').end()
+               .find(".tostadas").text('Si').end()
+               .find(".zumo").text('No').end();
+
+    </script>
+  </body>
+
+</html>

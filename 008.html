@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,13 +18,24 @@
     <h1> JQuery avanzado </h1> 
     <div class="elem"></div>
 
+    <ul id="primera_lista">
+      <li><a href="001.html">Ir a html 001</a></li>
+      <li><a href="002.html">Ir a html 002</a></li>
+      <li><a href="http://www.google.es">Ir a google</a></li>
+    </ul>
+
     <script data-require="jquery@*" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
-        var cuantosHay = $("h1").length;
-        console.log('Hay', cuantosHay, 'h1');
-        
-        var cuantosHay = $("*").length;
-        console.log('Hay', cuantosHay, 'elementos');
+
+      $("#primera_lista a").each(function(){
+
+        if( this.hostname != location.hostname ){
+          $(this).append('<img src="./assets/img/external.png"/>')
+                 .attr('target', '_blank');
+        }
+
+      });
+
     </script>
   </body>
 

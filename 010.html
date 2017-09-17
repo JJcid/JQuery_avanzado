@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      .menu{
+        position : fixed;
+        width: 50px;
+        height: 50px;
+        background-color: blue;
+      }
+    
+    </style>
+  </head>
+
+  <body>
+    <h1> JQuery avanzado </h1> 
+
+    <script data-require="jquery@*" data-semver="3.1.1" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+
+      $( function(){
+        $(document).on('contextmenu', function(e){
+
+          e.preventDefault();
+
+          console.log(e.offsetX, e.offsetY);
+
+          $('.menu').remove();
+
+          var div = $('<div>', {
+            'class' : 'menu',
+            'css' : {
+              'top' : e.offsetY,
+              'left' : e.offsetX
+            },
+            'animate' : {
+              'width' : '200',
+              'height' : '250'
+            }
+          });
+
+          div.appendTo('body');
+
+        });
+      });
+
+    </script>
+  </body>
+
+</html>
