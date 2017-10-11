@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+    <h1>Algún texto</h1>
+    <p id="parrafo">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
+    </p>
+
+    <ul id="numeros">
+      <li class="1">1</li>
+      <li class="2">2</li>
+      <li class="3">3</li>
+      <li class="4">4</li>
+      <li class="5">5</li>
+    </ul>
+
+
+
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+   
+      // Mala práctica - llamando al elemento para cada borrado
+      // $("#numeros li").eq(2).remove();
+      // $("#numeros li").eq(5).remove();
+      // $("#numeros li").eq(3).remove();
+
+      //Mejor - Nos traemos el elemento y lo manejamos fuera del DOM
+      //var $numeros = $("#numeros li");
+      // $numeros.eq(2).remove();
+      // $numeros.eq(5).remove();
+      // $numeros.eq(3).remove();
+
+      //Alternativa
+      var $numeros = $("#numeros li");
+      $numeros.eq(0).remove().end()
+              .eq(1).remove().end()
+              .eq(4).remove().end();
+      
+
+    </script>
+
+  </body>
+</html>
