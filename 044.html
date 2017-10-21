@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>Crear nuestros plugins o librerías</h1>
+    <p>
+      Creamos una función y encapsulamos dentro el contenido para no tener conflictos con otras librerías
+    </p>
+
+    <button id="boton">Sumar</button>
+
+
+
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+
+      (function($){ //creamos una función jquery y encapsulamos dentro la funcionalidad
+                    //siempre debemos hacer esto para no tener problemas
+        var c = 1;
+
+        $.fn.count = function(){
+          console.log( c++);
+          return this;
+        }
+
+        $('#boton').on('click', function(){
+          $('body').count();
+        });
+      })(jQuery);
+
+    </script>
+
+  </body>
+</html>
