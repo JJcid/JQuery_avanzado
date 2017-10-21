@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>AJAX</h1>
+    <p>
+      Subir archivos con formData a nuestro servidor
+    </p>
+
+    <input type="file" name="file" id="subir">
+    <input type="button" id="boton" value="subir archivo">
+
+
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+
+      var fileInput = $('#subir');
+      var boton = $('#boton');
+
+      boton.on('click', function(){
+
+        var archivos = fileInput.prop('files');
+
+        if( archivos.length === 0 ){
+          console.log( "Por favor seleccione un archivo ");
+        }
+
+      var fd = new FormData();
+      fd.append('file', archivos[0]);
+
+      $.ajax({
+        url: 'http://localhost/PHP/subida%20de%20ficheros%20jquery%20avanzado/upload.php',
+        data: fd,
+        contentType: false,
+        processData: false,
+        type: 'POST',
+        success: function( r ){
+          console.log( r );
+        }
+      })
+    });
+
+      
+
+      
+
+
+ 
+
+    </script>
+
+  </body>
+</html>

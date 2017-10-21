@@ -16,11 +16,41 @@
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.
     </p>
 
+    <a class="fetchSize" href="001.html">Archivo 001.html</a>
+    <a class="fetchSize" href="032.html">Archivo 032.html</a>
+    <a class="fetchSize" href="assets/img/ball.png">Pelota</a>
+
     <!-- Librería de jQuery -->
     <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
     <script>
 
+      $('a.fetchSize').each( function(){
 
+        var link = this;
+        $.ajax({
+          type: 'HEAD',
+          url: link.href,
+          complete: function(xhr){
+            var size = xhr.getResponseHeader('Content-Length');
+            size = humanizar(size);
+            $(link).append('(' + size + ')');
+            
+          }
+        })
+
+      });
+
+      function humanizar( size ){
+
+        	var unidades = ['bytes','KB','MB','GB','TB'];
+
+        	var ord = Math.floor( Math.log(size) / Math.log(1024) );
+        	ord = Math.min( Math.max(0,ord), unidades.length -1 );
+
+        	var s = Math.round(  (size/Math.pow(1024,ord)) * 100 ) / 100;
+        	return s + ' ' + unidades[ord]
+
+      }
 
     </script>
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>AJAX APIS</h1>
+    <p>
+      Información de una API
+    </p>
+
+
+
+
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+
+      //8df8642ac9664a3a9e83b71628dd8d55
+      var appid = '8df8642ac9664a3a9e83b71628dd8d55';
+      var url = 'http://api.openweathermap.org/data/2.5/weather?lat=41.652251&lon=-4.724532100000033&appid=' + appid;
+
+      $.get(url, function( r ){
+        console.log(r);
+        console.log(r.main.temp - 273.15 + 'º');
+      }); //petición normal;
+
+      $.getJSON(url, function( r ){
+        console.log(r);
+        console.log(r.main.temp - 273.15 + 'º');
+      }); // petición Json P (callback=?);
+
+
+
+    </script>
+
+  </body>
+</html>

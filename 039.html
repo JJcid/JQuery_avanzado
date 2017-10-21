@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>AJAX</h1>
+    <p>
+      Obtener la foto de perfil de una página de facebook
+    </p>
+
+
+    <img src="" alt="">
+
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+
+      var pagina = 'JPinelRegalos'
+      var url = 'https://graph.facebook.com/' + pagina + '/picture/type=large';
+
+      $('img').attr('src', url);
+
+    </script>
+
+  </body>
+</html>

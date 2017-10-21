@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>Ajax</h1>
+    <p>
+      ajax short form
+    </p>
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+      
+      $.get('assets/data/1.json').done(function( r ){
+        console.log( r.mensaje )
+      }).fail (function ( err ){
+        console.log( 'el archivo no existe' );
+      })
+
+    </script>
+
+  </body>
+</html>

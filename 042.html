@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Avanzado</title>
+
+    <!-- Estilo del Boostrap 4 -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/estilo.css">
+
+  </head>
+  <body>
+
+    <h1>Consola</h1>
+    <p>
+      Tips que nos ayudarán en la salida de consola.
+    </p>
+
+
+
+
+
+    <!-- Librería de jQuery -->
+    <script src="assets/libs/jquery-3.min.js" charset="utf-8"></script>
+    <script>
+
+      var a = 'buenos', b = 'días';
+      console.log('Hola %s %s.', a, b); //reemplaza con el valor de las variables cada %s
+
+      console.dir( window ); //muestra todo lo que hay cargado en la ventana
+
+      console.info( 'info' );
+
+      console.warn('Precaución');
+
+      console.error(' ERROR ');
+
+      console.group(a,b);
+
+      for (var i = 0; i < 10 ; i++) {
+        console.count('vamos por'); //automaticamente saca el indice del array
+      }
+
+      console.group('Funcion main'); //agrupa la salida de consola de lo que se encuentra dentro
+
+        console.info( 'salimos' );
+        console.warn('estamos llegando');
+        console.error('llegamos');
+
+      console.groupEnd();
+
+      console.time('medimos el tiempo del ciclo'); //muestra lo que tarda en ejecutarse lo que se encuentra dentro
+      var numero = 0;
+      for( var i = 0; i < 1000; i += 1){
+        numero += 10;
+      }
+      console.timeEnd('medimos el tiempo del ciclo');
+
+    </script>
+
+  </body>
+</html>
